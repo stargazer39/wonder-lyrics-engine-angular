@@ -1,0 +1,11 @@
+.song-elem {
+    width: 300px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.song-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}

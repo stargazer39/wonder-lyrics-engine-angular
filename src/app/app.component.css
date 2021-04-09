@@ -1,0 +1,16 @@
+.top-bar {
+    position: sticky;
+    text-align: center;
+    width: 100%;
+    top: 0;
+    padding: 10px;
+}
+
+.bottom-bar {
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    padding: 10px;
+}
+

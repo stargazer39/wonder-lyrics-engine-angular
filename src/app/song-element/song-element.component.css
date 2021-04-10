@@ -1,0 +1,42 @@
+.song-elem {
+    width: 300px;
+    height: 200px;
+    flex-shrink: 0;
+    position: relative;
+    margin: 5px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 300ms;
+    opacity: 0;
+}
+
+.song-title {
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    bottom: 0%;
+    color:white;
+    background-color:#ff00b1cf;
+    padding: 4% 0% 4% 0;
+}
+
+.song-elem > img {
+    object-fit: contain;
+    transition: all 200ms;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.song-elem:hover  img {
+    transform: scale(1.2);
+}
+
+.song-elem:hover {
+    transform: scale(1.02);
+}
+
+.song-elem {
+    transform: translate(-20px,-20px);
+}

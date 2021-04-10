@@ -1,11 +1,11 @@
 <!-- Top bar -->
-<div class="top-bar">
-  <span>Wonder Lyrics Engine</span>
+<app-top-bar></app-top-bar>
+
+<!-- Content -->
+<div id="content">
+  <router-outlet></router-outlet>
 </div>
 
-<router-outlet></router-outlet>
 
 <!-- Bottom bar -->
-<div class="bottom-bar">
-  <span>Powered by Angular <br> current view is : <span [innerHTML]="viewName"></span></span>
-</div>
+<app-bottom-bar [viewName]="viewName"></app-bottom-bar>

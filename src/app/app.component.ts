@@ -11,9 +11,9 @@ import { SharedServiceService } from './shared-service.service';
 
 export class AppComponent implements AfterContentInit {
   title = 'wle';
-  @Input() viewName: string = '';
+  @Input() viewName: string;
   sharedService: SharedServiceService;
-  constructor(_sharedService: SharedServiceService) { 
+  constructor(private _sharedService: SharedServiceService) { 
     this.sharedService = _sharedService;
   }
 

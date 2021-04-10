@@ -1,0 +1,5 @@
+<video *ngIf="playerMode == pEnum.HTML5" autoplay="" id="html5player" [controls]="true" (play)="onPlayerStateChange(pStateEnum.PLAYING)" (pause)="onPlayerStateChange(pStateEnum.PAUSED)" (waiting)="onPlayerStateChange(pStateEnum.BUFFERING)" (ended)="onPlayerStateChange(pStateEnum.ENDED)"#html5_player>
+    <source [src]="source">
+</video>
+<div *ngIf="playerMode == pEnum.YT" id="ytplayer"></div>
+

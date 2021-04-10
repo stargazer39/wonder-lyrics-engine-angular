@@ -1,0 +1,24 @@
+.lyric {
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#uni-player-wrapper {
+    position: absolute;
+    z-index: -1;
+    height: 100%;
+}
+
+#lyr-container {
+    z-index: 1;
+    color:white;
+}
+
+#container-wrapper {
+    position: relative;
+    height: 94vh;
+    overflow: hidden;
+}
+

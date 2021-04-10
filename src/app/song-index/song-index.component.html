@@ -1,5 +1,3 @@
 <div class="song-list">
-    <div class="song-elem" *ngFor="let song of songs">
-        {{ song.title }}
-    </div>
+    <app-song-element [song]="song"  *ngFor="let song of songs"></app-song-element>
 </div>

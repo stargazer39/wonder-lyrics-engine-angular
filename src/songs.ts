@@ -2,26 +2,36 @@ export const songs = [
     {
         title: "Systematic Love",
         artist: "Unknown",
-        singer: "Hatsune Miku"
+        singer: "Hatsune Miku",
+        thumb:"default.png",
+        lyrics:["1","2","3"]
     },
     {
-        title: "Systematic Love",
+        title: "Hand in Hand",
         artist: "Unknown",
-        singer: "Hatsune Miku"
+        singer: "Hatsune Miku",
+        thumb:"default.png",
+        lyrics:["1","2","3"]
     },
     {
-        title: "Systematic Love",
+        title: "Rolling girl",
         artist: "Unknown",
-        singer: "Hatsune Miku"
+        singer: "Hatsune Miku",
+        thumb:"default.png",
+        lyrics:["1","2","3"]
     },
     {
-        title: "Systematic Love",
+        title: "Unhappy refrain",
         artist: "Unknown",
-        singer: "Hatsune Miku"
+        singer: "Hatsune Miku",
+        thumb:"default.png",
+        lyrics:["1","2","3"]
     },
     {
-        title: "Systematic Love",
+        title: "Yellow",
         artist: "Unknown",
-        singer: "Hatsune Miku"
+        singer: "Hatsune Miku",
+        thumb:"default.png",
+        lyrics:["1","2","3"]
     }
 ]

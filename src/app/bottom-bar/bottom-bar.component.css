@@ -7,4 +7,5 @@
     background-color: rgba(0, 0, 0, 0.658);
     color: white;
     height: 8%;
+    transition: all 500ms;
 }

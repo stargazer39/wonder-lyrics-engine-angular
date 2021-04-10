@@ -1,11 +1,11 @@
 <!-- Top bar -->
-<app-top-bar></app-top-bar>
+<app-top-bar id="top-bar" #top_bar></app-top-bar>
 
 <!-- Content -->
-<div id="content">
+<div id="content" #content>
   <router-outlet></router-outlet>
 </div>
 
 
 <!-- Bottom bar -->
-<app-bottom-bar [viewName]="viewName"></app-bottom-bar>
+<app-bottom-bar id="bottom-bar" [viewName]="viewName" #bottom_bar></app-bottom-bar>

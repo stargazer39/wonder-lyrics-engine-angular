@@ -55,6 +55,11 @@ export class UniPlayerComponent implements AfterViewInit,OnInit {
     this.ready.emit(true);
   }
 
+  onHTMLPlayerReady(e: any) {
+    this.ready.emit(true);
+    console.log("canplay")
+  }
+
   onYTPlayerStateChange(e: any) {
     switch(e.data) {
       case window['YT'].PlayerState.PLAYING:

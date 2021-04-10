@@ -1,9 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 body { 
     margin: 0;
+    background-color: black;
 }
 @font-face {
     font-family: Main_1;
     src: url('./assets/fonts/Mukta-Regular.ttf');
 }
 * { font-family: Main_1; }
+.hide_bars {
+    transform: translateY(-100%);
+    opacity: 0 !important;
+}
+
+.hide_bars_bottom {
+    transform: translateY(100%);
+    opacity: 0 !important;
+}
+.position_sticky {
+    position: sticky !important;
+}
+
+.position_absolute {
+    position: absolute !important;
+}

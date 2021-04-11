@@ -9,6 +9,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { SongElementComponent } from './song-element/song-element.component';
 import { UniPlayerComponent } from './uni-player/uni-player.component';
+import { DefaultLyricsViewComponent } from './default-lyrics-view/default-lyrics-view.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UniPlayerComponent } from './uni-player/uni-player.component';
     TopBarComponent,
     BottomBarComponent,
     SongElementComponent,
-    UniPlayerComponent
+    UniPlayerComponent,
+    DefaultLyricsViewComponent
   ],
   imports: [
     BrowserModule,

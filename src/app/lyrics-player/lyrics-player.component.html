@@ -2,8 +2,8 @@
     <div id="uni-player-wrapper" #uniPlayerWrapper>
         <app-uni-player id="uni-player" [playerMode]="pEnum.HTML5" (ready)="onPlayerReady()" (stateChanged)="onPlayerStateChange($event)" [source]="'assets/videos/【MV】Lucky☆Orb feat. Hatsune Miku by emon(T ( 1440 X 1440 ).webm'" #uniPlayer0></app-uni-player>
     </div>
-    
-    <div id="lyr-container" #container>
+    <app-default-lyrics-view [goToIndex]="2" [lyrics]="lyrics"></app-default-lyrics-view>
+    <!-- <div id="lyr-container" #container>
         <div class="lyric" *ngFor="let lyr of lyrics">{{ lyr }}</div>
-    </div>
+    </div> -->
 </div>

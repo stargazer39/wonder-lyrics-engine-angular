@@ -15,11 +15,11 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
 
   @Input() lyrics: string[] = songs[0].lyrics;
   @ViewChild('container') container: ElementRef;
-  @ViewChild('uniPlayer0',{ read: ElementRef }) _player: ElementRef;
+  @ViewChild('uniPlayer0') player: UniPlayerComponent;
   @ViewChild('uniPlayerWrapper',{ read: ElementRef }) _playerWrapper: ElementRef;
   pEnum = PlayerMode;
 
-  player: HTMLElement;
+  //player: HTMLElement;
   playerWrapper: HTMLElement;
   //@ViewChild('local_player') private _local_player: ElementRef;
   
@@ -34,7 +34,6 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
   }
   ngAfterViewInit() {
     setTimeout(()=>{
-      this.player = this._player.nativeElement;
       this.playerWrapper = this._playerWrapper.nativeElement;
     })
   }
@@ -48,6 +47,9 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
     setTimeout(()=>{
       this.playerWrapper.style.opacity = "1";
     },100);
+    setInterval(()=>{
+      console.log(this.player.getDuration());
+    },1000);
   }
 
   onPlayerStateChange(e: PlayerState): void {

@@ -1,0 +1,7 @@
+<div id="wrapper">
+    <div id="container" #container>
+        <div class="lyric" *ngFor="let lyr of lyrics" #lyric>{{ (lyr.trim()) ? lyr : "-" }}</div>
+    </div>
+    <div id="highlighter" #highlighter></div>
+</div>
+    

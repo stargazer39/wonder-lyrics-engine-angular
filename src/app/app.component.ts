@@ -1,7 +1,7 @@
 import { Component,AfterContentInit,OnDestroy,Input,ViewChild, ElementRef,OnInit } from '@angular/core';
 import { SongIndexComponent } from './song-index/song-index.component';
 import { SharedServiceService } from './shared-service.service';
-import { CommonUtils } from './common-utils';
+import { Cutil } from './common-utils';
 
 @Component({
   selector: 'app-root',
@@ -44,7 +44,7 @@ export class AppComponent implements AfterContentInit {
       //console.log(this.content);
       this.topBar.classList.remove("position_sticky");
       this.topBar.classList.add("position_absolute");
-      await CommonUtils.delay(500);
+      await Cutil.delay(500);
       this.topBar.classList.add("hide_bars");
       this.bottomBar.classList.add("hide_bars_bottom");
 
@@ -62,7 +62,7 @@ export class AppComponent implements AfterContentInit {
             this.topBar.classList.add("hide_bars");
             this.bottomBar.classList.add("hide_bars_bottom");
             state_t1 = false;
-        },2000);
+        },5000);
         }
         
       }

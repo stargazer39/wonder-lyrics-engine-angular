@@ -15,8 +15,8 @@ export class SongIndexComponent implements OnInit,AfterViewInit {
   sharedService: SharedServiceService;
   @ViewChildren(SongElementComponent) songElems: QueryList<SongElementComponent>;
   constructor(_sharedService: SharedServiceService){
-    this.sharedService = _sharedService;
-  }
+     this.sharedService = _sharedService;
+   }
 
   ngOnInit() {
     this.sharedService.subject.next("Song Index");
@@ -28,5 +28,9 @@ export class SongIndexComponent implements OnInit,AfterViewInit {
       elem.parentElem.nativeElement.style.opacity = "1";
       await delay(200);
     }
+  }
+
+  goToSong(id: number) {
+    console.log(id);
   }
 }

@@ -9,5 +9,6 @@ export class SharedServiceService {
   constructor() { }
 
   subject = new Subject<any>();
+  currentSong: number;
 
 }

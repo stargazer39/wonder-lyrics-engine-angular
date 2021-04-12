@@ -1,4 +1,4 @@
 <div class="song-list">
-    <app-song-element [song]="song"  *ngFor="let song of songs"></app-song-element>
+    <app-song-element [song]="song" (click)="goToSong(songs.indexOf(song))" *ngFor="let song of songs"></app-song-element>
     <button routerLink="/player">Go</button>
 </div>

@@ -12,7 +12,7 @@ export class UniPlayerComponent implements AfterViewInit,OnInit {
   @Output() error = new EventEmitter<string>();
   @Input() playerMode: PlayerMode;
   @Input() source: string;
-  @ViewChild('html5_player') local_player: ElementRef;
+  @ViewChild('html5_player') local_player: ElementRef = new ElementRef(HTMLVideoElement);
 
   pEnum = PlayerMode;
   pStateEnum = PlayerState;

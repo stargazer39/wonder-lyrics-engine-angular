@@ -35,6 +35,7 @@ export class AppComponent implements AfterContentInit {
     })
   }
 
+  onMoveRef: any;
   async afterContentInit () {
     this.topBar = this._topBar.nativeElement.firstChild;
     this.bottomBar = this._bottomBar.nativeElement.firstChild;
@@ -47,21 +48,24 @@ export class AppComponent implements AfterContentInit {
       await delay(500);
       this.topBar.classList.add("hide_bars");
       this.bottomBar.classList.add("hide_bars_bottom");
-
-      window.addEventListener('mousemove',this.onMouseMove.bind(this));
+      this.onMoveRef = this.onMouseMove.bind(this);
+      window.addEventListener('mousemove',this.onMoveRef);
       //this.content.style.height = "100vh";
     } else {
       clearTimeout(this.t1);
-      window.removeEventListener('mousemove',this.onMouseMove.bind(this));
+      console.log("else");
+      window.removeEventListener('mousemove',this.onMoveRef);
       this.topBar.classList.remove("position_absolute");
       this.topBar.classList.add("position_sticky");
       this.topBar.classList.remove("hide_bars");
       this.bottomBar.classList.remove("hide_bars_bottom");
     }
   }
+  
   t1:any;
   state_t1: boolean = false;
   onMouseMove() {
+    console.log("moving");
     if(this.state_t1) clearTimeout(this.t1);
         if(!this.state_t1) {
           this.topBar.classList.remove("hide_bars");

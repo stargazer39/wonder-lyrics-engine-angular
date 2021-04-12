@@ -7,6 +7,7 @@ import { Component, Input, AfterViewInit, ViewChild, ElementRef } from '@angular
 })
 export class SongElementComponent implements AfterViewInit {
   @Input() song: any;
+  @Input() id: string;
   @ViewChild('parentElem') parentElem: ElementRef;
   constructor() { }
 

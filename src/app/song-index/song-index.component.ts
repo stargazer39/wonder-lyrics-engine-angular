@@ -1,6 +1,6 @@
 import { AfterViewInit, Component,OnInit, QueryList, ViewChildren } from '@angular/core';
 import { songs } from '../../songs';
-import { Cutil } from "../common-utils";
+import { delay } from "../common-utils";
 import { SharedServiceService } from '../shared-service.service';
 import { SongElementComponent } from '../song-element/song-element.component';
 
@@ -26,7 +26,7 @@ export class SongIndexComponent implements OnInit,AfterViewInit {
     for(var elem of this.songElems){
       elem.parentElem.nativeElement.style.transform = "translate(0,0)";
       elem.parentElem.nativeElement.style.opacity = "1";
-      await Cutil.delay(200);
+      await delay(200);
     }
   }
 }

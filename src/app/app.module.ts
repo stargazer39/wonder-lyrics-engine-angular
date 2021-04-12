@@ -10,6 +10,7 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { SongElementComponent } from './song-element/song-element.component';
 import { UniPlayerComponent } from './uni-player/uni-player.component';
 import { DefaultLyricsViewComponent } from './default-lyrics-view/default-lyrics-view.component';
+import { ArtistInfoComponent } from './artist-info/artist-info.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { DefaultLyricsViewComponent } from './default-lyrics-view/default-lyrics
     BottomBarComponent,
     SongElementComponent,
     UniPlayerComponent,
-    DefaultLyricsViewComponent
+    DefaultLyricsViewComponent,
+    ArtistInfoComponent
   ],
   imports: [
     BrowserModule,

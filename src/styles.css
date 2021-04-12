@@ -5,9 +5,14 @@ body {
 }
 @font-face {
     font-family: Main_1;
-    src: url('./assets/fonts/Mukta-Regular.ttf');
+    src: url('./assets/fonts/FredokaOne-Regular.ttf');
 }
-* { font-family: Main_1; }
+
+@font-face {
+    font-family: Main_2;
+    src: url('./assets/fonts/Roboto-Medium.ttf');
+}
+
 .hide_bars {
     transform: translateY(-100%);
     opacity: 0 !important;

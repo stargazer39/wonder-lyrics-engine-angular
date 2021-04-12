@@ -1,0 +1,21 @@
+.window {
+    height: 130px;
+    width: 320px;
+    background-color: black;
+    color:white;
+    padding: 10px;
+}
+
+.t-d-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.t-d-wrapper > div {
+    flex-shrink: 0;
+}
+
+#thumb {
+    width: 40%;
+    height: 100%;
+}

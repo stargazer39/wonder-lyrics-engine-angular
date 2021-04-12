@@ -84,7 +84,7 @@ export class UniPlayerComponent implements AfterViewInit,OnInit {
     this.stateChanged.emit(e);
   }
 
-  getCurrentTime(): void {
+  public getCurrentTime(): any {
     switch(this.playerMode) {
       case PlayerMode.HTML5:
         return this.local_player.nativeElement.currentTime;
@@ -92,7 +92,40 @@ export class UniPlayerComponent implements AfterViewInit,OnInit {
     }
   }
 
-  getDuration(): void {
+  public setCurrentTime(t: number): void {
+    switch(this.playerMode) {
+      case PlayerMode.HTML5:
+        this.local_player.nativeElement.currentTime = t;
+        break;
+    }
+  }
+
+  public play() {
+    switch(this.playerMode) {
+      case PlayerMode.HTML5:
+        this.local_player.nativeElement.play();
+        break;
+    }
+  }
+
+  public pause() {
+    switch(this.playerMode) {
+      case PlayerMode.HTML5:
+        this.local_player.nativeElement.pause();
+        break;
+    }
+  }
+
+  public pausedState(): boolean {
+    switch(this.playerMode) {
+      case PlayerMode.HTML5:
+        return this.local_player.nativeElement.paused;
+        break;
+    }
+    return false;
+  }
+
+  public getDuration(): any {
     switch(this.playerMode) {
       case PlayerMode.HTML5:
         return this.local_player.nativeElement.duration;

@@ -83,7 +83,14 @@ export class UniPlayerComponent implements AfterViewInit,OnInit {
   onPlayerStateChange(e: PlayerState) {
     this.stateChanged.emit(e);
   }
-
+  
+  public getVideoElement() {
+    switch(this.playerMode) {
+      case PlayerMode.HTML5:
+        return this.local_player.nativeElement;
+        break;
+    }
+  }
   public getCurrentTime(): any {
     switch(this.playerMode) {
       case PlayerMode.HTML5:

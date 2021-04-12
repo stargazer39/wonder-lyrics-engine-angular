@@ -1,9 +1,13 @@
 <div class="window">
     <div class="t-d-wrapper">
-        <div id="thumb"></div>
+        <div id="thumb">
+            <canvas></canvas>
+        </div>
         <div id="details">
-            Lucky☆Orb ft <br>
-            Hatsune Miku
+            {{ songArgs.title }} <br>
+            {{ songArgs.singers[0] }} <br>
+            By : {{ songArgs.names[0]}} <br>
+            {{ currentTime }}
         </div>
     </div>
 </div>

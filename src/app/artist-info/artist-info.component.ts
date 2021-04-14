@@ -14,6 +14,18 @@ export class ArtistInfoComponent implements AfterViewInit,OnDestroy {
   @Input() currentTime: number = 0;
   @Input() canvasVideo: boolean = true;
   @Input() thumb: string;
+  @Input() 
+  set hideElem(state: boolean) {
+    if(state) {
+      this.thisWindow.style.opacity = '0';
+      this.thisWindow.classList.add('width-0');
+      this.stopUpdate();
+    }else{
+      this.thisWindow.style.opacity = '1';
+      this.thisWindow.classList.remove('width-0');
+      this.startUpdate();
+    }
+  }
   @ViewChild('thiswindow') _thisWindow: ElementRef;
   @ViewChild('thisthumb') _thisThumb: ElementRef;
   @ViewChild('thiscanvas') _thisCanvas: ElementRef;
@@ -23,16 +35,25 @@ export class ArtistInfoComponent implements AfterViewInit,OnDestroy {
   thisThumb: HTMLDivElement;
   thisCanvas: HTMLCanvasElement;
   updateBlocker: boolean = false;
-  updateTimeout: any;
+  updateTimer: any;
+  cArgs: canvasArgs;
 
   constructor(_sharedService: SharedServiceService) { 
     this.sharedSrv = _sharedService;
   }
 
-  private updatePreview(video: HTMLVideoElement, context: any, w: number, h:number) {
+  private startUpdate() { 
+    this.updateTimer = setInterval(this.updatePreview.bind(this),20);
+  }
+  
+  private stopUpdate() {
+    clearInterval(this.updateTimer);
+  }
+
+  private updatePreview() {
     if(!this.updateBlocker) {
-      context.drawImage(video,0,0,w,h);
-      setTimeout(this.updatePreview.bind(this),20,video,context,w,h);
+      this.cArgs.context.drawImage(this.cArgs.elem,0,0,this.cArgs.width,this.cArgs.height);
+      //setTimeout(this.updatePreview.bind(this),20,video,context,w,h);
     }
   }
 
@@ -49,13 +70,27 @@ export class ArtistInfoComponent implements AfterViewInit,OnDestroy {
       this.thisCanvas.height = ch;
       this.updateBlocker = false;
 
-      this.updatePreview(elem,ctx,cw,ch);
+      this.cArgs = {
+        elem:elem,
+        context:ctx,
+        width:cw,
+        height:ch
+      }
+      this.startUpdate();
+      //this.updatePreview(elem,ctx,cw,ch);
       console.log(this.thisCanvas);
     })
   }
 
   ngOnDestroy() {
-    this.updateBlocker = true;
+    this.stopUpdate();
   }
 
+}
+
+interface canvasArgs {
+  elem: any,
+  width: number,
+  height: number,
+  context: any
 }

@@ -29,3 +29,7 @@ body {
 .position_absolute {
     position: absolute !important;
 }
+
+.width-0 {
+    width: 0px !important;
+}

@@ -6,5 +6,8 @@
     <!-- <div id="lyr-container" #container>
         <div class="lyric" *ngFor="let lyr of lyrics">{{ lyr }}</div>
     </div> -->
-    <app-artist-info id="artist-info" [song]="song" [currentTime]="currentTime" #artistinfo></app-artist-info>
+    <div class="bottom" #bottom>
+        <app-secondary-view [goToIndex]="setIndex" [lyrics]="song.lyrics"></app-secondary-view>
+        <app-artist-info id="artist-info" [song]="song" [currentTime]="currentTime" [hideElem]="bottomHide" #artistinfo></app-artist-info>
+    </div>
 </div>

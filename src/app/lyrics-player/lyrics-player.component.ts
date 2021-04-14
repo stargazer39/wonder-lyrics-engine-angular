@@ -19,17 +19,20 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
   //@Input() lyrics: string[] = songs[0].lyrics;
   @Input() setIndex: number = 0;
   @Input() hideView: boolean;
+  @Input() bottomHide: boolean;
   @Input() song: Song = songs[0];
   @Input() currentTime: number;
   @ViewChild('container') container: ElementRef;
   @ViewChild('uniPlayer0') player: UniPlayerComponent;
   @ViewChild('uniPlayerWrapper',{ read: ElementRef }) _playerWrapper: ElementRef;
   @ViewChild('artistinfo',{ read: ElementRef }) _artistInfo : ElementRef;
+  @ViewChild('bottom') _bottomElem: ElementRef;
   pEnum = PlayerMode;
 
   //player: HTMLElement;
   playerWrapper: HTMLElement;
   artistInfo: HTMLDivElement;
+  bottomElem: HTMLDivElement;
   
   //@ViewChild('local_player') private _local_player: ElementRef;
   
@@ -46,14 +49,18 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
     setTimeout(()=>{
       this.playerWrapper = this._playerWrapper.nativeElement;
       this.artistInfo = this._artistInfo.nativeElement;
+      this.bottomElem = this._bottomElem.nativeElement;
+
       this.sharedService.subscribeBarState((state: BarState)=>{
         //console.log(state);
         //console.log(this.thisWindow);
         if(state.hidden){
-          this.artistInfo.style.transform = `translateY(0px)`;
+          this.bottomElem.style.transform = `translateY(0px)`;
         }else{
-          this.artistInfo.style.transform = `translateY(-${state.bottom_height}px)`;
+          this.bottomElem.style.transform = `translateY(-${state.bottom_height}px)`;
         }
+
+        this.bottomHide = state.hidden;
       })
       this.sharedService.setPreviewVideo(this.player.getVideoElement());
     })

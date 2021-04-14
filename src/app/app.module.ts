@@ -11,6 +11,7 @@ import { SongElementComponent } from './song-element/song-element.component';
 import { UniPlayerComponent } from './uni-player/uni-player.component';
 import { DefaultLyricsViewComponent } from './default-lyrics-view/default-lyrics-view.component';
 import { ArtistInfoComponent } from './artist-info/artist-info.component';
+import { SecondaryViewComponent } from './secondary-view/secondary-view.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ArtistInfoComponent } from './artist-info/artist-info.component';
     SongElementComponent,
     UniPlayerComponent,
     DefaultLyricsViewComponent,
-    ArtistInfoComponent
+    ArtistInfoComponent,
+    SecondaryViewComponent
   ],
   imports: [
     BrowserModule,

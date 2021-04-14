@@ -52,15 +52,6 @@ export class ArtistInfoComponent implements AfterViewInit,OnDestroy {
       this.updatePreview(elem,ctx,cw,ch);
       console.log(this.thisCanvas);
     })
-    this.sharedSrv.subscribeBarState((state: BarState)=>{
-      //console.log(state);
-      //console.log(this.thisWindow);
-      if(state.hidden){
-        this.thisWindow.style.bottom = 0 + 'px';
-      }else{
-        this.thisWindow.style.bottom = state.bottom_height + 'px';
-      }
-    })
   }
 
   ngOnDestroy() {

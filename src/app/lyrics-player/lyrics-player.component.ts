@@ -3,7 +3,7 @@ import { SharedServiceService } from "../shared-service.service";
 import { PlayerService } from "../player.service";
 import { UniPlayerComponent,PlayerMode, PlayerState } from "../uni-player/uni-player.component";
 import { songs } from '../../songs';
-import { Song } from '../shared-service.service';
+import { Song,BarState } from '../shared-service.service';
 
 @Component({
   selector: 'app-lyrics-player',
@@ -24,10 +24,12 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
   @ViewChild('container') container: ElementRef;
   @ViewChild('uniPlayer0') player: UniPlayerComponent;
   @ViewChild('uniPlayerWrapper',{ read: ElementRef }) _playerWrapper: ElementRef;
+  @ViewChild('artistinfo',{ read: ElementRef }) _artistInfo : ElementRef;
   pEnum = PlayerMode;
 
   //player: HTMLElement;
   playerWrapper: HTMLElement;
+  artistInfo: HTMLDivElement;
   
   //@ViewChild('local_player') private _local_player: ElementRef;
   
@@ -43,6 +45,16 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
   ngAfterViewInit() {
     setTimeout(()=>{
       this.playerWrapper = this._playerWrapper.nativeElement;
+      this.artistInfo = this._artistInfo.nativeElement;
+      this.sharedService.subscribeBarState((state: BarState)=>{
+        //console.log(state);
+        //console.log(this.thisWindow);
+        if(state.hidden){
+          this.artistInfo.style.transform = `translateY(0px)`;
+        }else{
+          this.artistInfo.style.transform = `translateY(-${state.bottom_height}px)`;
+        }
+      })
       this.sharedService.setPreviewVideo(this.player.getVideoElement());
     })
   }
@@ -60,7 +72,7 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
       //console.log(this.player);
       // Debug
       if(!this.test) {
-        this.player.setCurrentTime(30);
+        //this.player.setCurrentTime(30);
         this.start();
         this.test = true;
 

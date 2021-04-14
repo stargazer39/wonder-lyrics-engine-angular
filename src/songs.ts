@@ -1,37 +1,11 @@
 export const songs = [
     {
-        title: "Systematic Love",
-        artist: "Unknown",
-        singer: "Hatsune Miku",
+        id:"001",
+        singers:['Hatsune Miku'],
+        title:"Lucky Orb",
+        names:['emon Tes.'],
         thumb:"default.png",
-        lyrics:["Hey! You there, you're a lucky boy","Hey! It's you, you're a lucky girl","Hey! Something's going to happen, it's a special night","Why don't we dance dance, let's take off everything","Hey! You there, you're a dreaming boy","Hey! It's you, you're a dreaming girl","Come on shakin', come on shakin'","Clap your hands up anyways","Anything goes now","Just get blown away!","","I don't know why","But my heart is dancing","Only a second before the story begins","That secret you can't tell anyone","The bad news that comes every day","That one you dislike, that one you don't get along with","Put them all on a rocket to send them beyond the stars","","Hey! You there, you're a lucky boy","Hey! It's you, you're a lucky girl","Hey! Something's going to happen, it's a special night","Why don't we dance dance, let's take off everything","Hey! You there, you're a dreaming boy","Hey! It's you, you're a dreaming girl","Come on shakin', come on shakin'","Clap your hands up anyways","Anything goes now","Just get blown away!","","Nagging dad","Irritated mom","That stuck-up friends looking down on you!","Just today, just tonight","Put them all on a rocket to send them beyond your dreams","","Hey! You there, you're a lucky boy","Hey! It's you, you're a lucky girl","Hey! Something's going to happen, it's a special night","Why don't we dance dance, let's take off everything","Hey! You there, you're a dreaming boy","Hey! It's you, you're a dreaming girl","Come on shakin', come on shakin'","Clap your hands up anyways","Anything goes now","Just get blown away!"]
-    },
-    {
-        title: "Hand in Hand",
-        artist: "Unknown",
-        singer: "Hatsune Miku",
-        thumb:"default.png",
-        lyrics:["1","2","3"]
-    },
-    {
-        title: "Rolling girl",
-        artist: "Unknown",
-        singer: "Hatsune Miku",
-        thumb:"default.png",
-        lyrics:["1","2","3"]
-    },
-    {
-        title: "Unhappy refrain",
-        artist: "Unknown",
-        singer: "Hatsune Miku",
-        thumb:"default.png",
-        lyrics:["1","2","3"]
-    },
-    {
-        title: "Yellow",
-        artist: "Unknown",
-        singer: "Hatsune Miku",
-        thumb:"default.png",
-        lyrics:["1","2","3"]
+        lyrics:["Hey! You there, you're a lucky boy","Hey! It's you, you're a lucky girl","Hey! Something's going to happen, it's a special night","Why don't we dance dance, let's take off everything","Hey! You there, you're a dreaming boy","Hey! It's you, you're a dreaming girl","Come on shakin', come on shakin'","Clap your hands up anyways","Anything goes now","Just get blown away!","","I don't know why","But my heart is dancing","Only a second before the story begins","That secret you can't tell anyone","The bad news that comes every day","That one you dislike, that one you don't get along with","Put them all on a rocket to send them beyond the stars","","Hey! You there, you're a lucky boy","Hey! It's you, you're a lucky girl","Hey! Something's going to happen, it's a special night","Why don't we dance dance, let's take off everything","Hey! You there, you're a dreaming boy","Hey! It's you, you're a dreaming girl","Come on shakin', come on shakin'","Clap your hands up anyways","Anything goes now","Just get blown away!","","Nagging dad","Irritated mom","That stuck-up friends looking down on you!","Just today, just tonight","Put them all on a rocket to send them beyond your dreams","","Hey! You there, you're a lucky boy","Hey! It's you, you're a lucky girl","Hey! Something's going to happen, it's a special night","Why don't we dance dance, let's take off everything","Hey! You there, you're a dreaming boy","Hey! It's you, you're a dreaming girl","Come on shakin', come on shakin'","Clap your hands up anyways","Anything goes now","Just get blown away!"],
+        timecode:[33.5,37.5,41.4,44.4,49.4,52.5,56.3,58.3,60.2,62.1,67.2,80.1,83.9,87.6,95.1,98.9,102.6,106.5,112.2,114.2,118,121.7,124.8,129.3,133.1,136.6,138.2,140.3,142.1,145.5,182.3,183.6,186.2,190.2,194.2,200.1,201.7,205.5,209.45,212.4,217,220.8,224.1,226.1,227.9,229.8,234]
     }
 ]

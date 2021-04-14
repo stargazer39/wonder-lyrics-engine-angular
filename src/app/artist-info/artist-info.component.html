@@ -1,12 +1,13 @@
-<div class="window">
+<div class="window" #thiswindow>
     <div class="t-d-wrapper">
-        <div id="thumb">
-            <canvas></canvas>
+        <div id="thumb" #thisthumb>
+            <canvas *ngIf="canvasVideo" #thiscanvas></canvas>
+            <img *ngIf="!canvasVideo" [src]="thumb" #thisthumb>
         </div>
         <div id="details">
-            {{ songArgs.title }} <br>
-            {{ songArgs.singers[0] }} <br>
-            By : {{ songArgs.names[0]}} <br>
+            {{ song.title }} <br>
+            {{ song!.singers![0] || "Unknown Singer" }} <br>
+            By : {{ song!.names![0] || "Unknown Artist"}} <br>
             {{ currentTime }}
         </div>
     </div>

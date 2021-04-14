@@ -14,12 +14,13 @@ export class SongIndexComponent implements OnInit,AfterViewInit {
   songs = songs;
   sharedService: SharedServiceService;
   @ViewChildren(SongElementComponent) songElems: QueryList<SongElementComponent>;
+  
   constructor(_sharedService: SharedServiceService){
      this.sharedService = _sharedService;
    }
 
   ngOnInit() {
-    this.sharedService.subject.next("Song Index");
+    this.sharedService.setViewName("SongIndexComponent");
   }
 
   async ngAfterViewInit() {

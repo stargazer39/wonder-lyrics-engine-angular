@@ -1,7 +1,7 @@
 import { Component,AfterContentInit,OnDestroy,Input,ViewChild, ElementRef,OnInit } from '@angular/core';
 import { SongIndexComponent } from './song-index/song-index.component';
-import { SharedServiceService } from './shared-service.service';
-import { delay } from './common-utils';
+import { SharedServiceService,BarState } from './shared-service.service';
+import { delay,dim } from './common-utils';
 
 @Component({
   selector: 'app-root',
@@ -27,14 +27,32 @@ export class AppComponent implements AfterContentInit {
   }
 
   ngAfterContentInit() {
-    this.sharedService.subject.subscribe((data)=>{
+    this.sharedService.subscribeView((data: any)=>{
       setTimeout(()=>{
         this.viewName = data;
         this.afterContentInit();
-      })
-    })
+      });
+    });
+    //this.sharedService.subject.subscribe()
   }
 
+  private showBars () {
+    this.sharedService.setBarState({
+      hidden: false,
+      bottom_height: dim(this.bottomBar).height
+    });
+    this.topBar.classList.remove("hide_bars");
+    this.bottomBar.classList.remove("hide_bars_bottom");
+  }
+
+  private hideBars() {
+    this.sharedService.setBarState({
+      hidden: true,
+      bottom_height: dim(this.bottomBar).height
+    });
+    this.topBar.classList.add("hide_bars");
+    this.bottomBar.classList.add("hide_bars_bottom");
+  }
   onMoveRef: any;
   async afterContentInit () {
     this.topBar = this._topBar.nativeElement.firstChild;
@@ -57,27 +75,25 @@ export class AppComponent implements AfterContentInit {
       window.removeEventListener('mousemove',this.onMoveRef);
       this.topBar.classList.remove("position_absolute");
       this.topBar.classList.add("position_sticky");
-      this.topBar.classList.remove("hide_bars");
-      this.bottomBar.classList.remove("hide_bars_bottom");
+      
+      this.showBars();
     }
   }
   
   t1:any;
   state_t1: boolean = false;
   onMouseMove() {
-    console.log("moving");
+    //console.log("moving");
     if(this.state_t1) clearTimeout(this.t1);
         if(!this.state_t1) {
-          this.topBar.classList.remove("hide_bars");
-          this.bottomBar.classList.remove("hide_bars_bottom");
+          this.showBars();
           this.state_t1 = true;
         }
         if(this.state_t1){
           this.t1 = setTimeout(()=>{
-            this.topBar.classList.add("hide_bars");
-            this.bottomBar.classList.add("hide_bars_bottom");
-            this.state_t1 = false;
-        },5000);
+          this.hideBars();
+          this.state_t1 = false;
+        },2000);
         }
   }
 }

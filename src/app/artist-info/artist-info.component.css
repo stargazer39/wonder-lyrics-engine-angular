@@ -1,21 +1,34 @@
 .window {
     height: 130px;
     width: 320px;
+    position: relative;
     background-color: black;
     color:white;
     padding: 10px;
+    transition: bottom 500ms;
+    margin: 15px;
 }
 
 .t-d-wrapper {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 
 .t-d-wrapper > div {
     flex-shrink: 0;
+    height: 100%;
 }
 
 #thumb {
-    width: 40%;
+    position: relative;
+    width: 50%;
     height: 100%;
+    overflow: hidden;
+}
+
+#thumb > canvas {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }

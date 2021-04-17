@@ -1,13 +1,13 @@
 <div id="container-wrapper" #container_wrapper>
     <div id="uni-player-wrapper" #uniPlayerWrapper>
-        <app-uni-player id="uni-player" [playerMode]="pEnum.HTML5" (ready)="onPlayerReady()" (stateChanged)="onPlayerStateChange($event)" [source]="'assets/videos/【MV】Lucky☆Orb feat. Hatsune Miku by emon(T ( 1440 X 1440 ).webm'" #uniPlayer0></app-uni-player>
+        <app-uni-player id="uni-player" [playerMode]="pEnum.HTML5" (ready)="onPlayerReady()" (stateChanged)="onPlayerStateChange($event)" [source]="song.localpath!" #uniPlayer0></app-uni-player>
     </div>
-    <app-default-lyrics-view [goToIndex]="setIndex" [hide]="hideView" [lyrics]="song.lyrics"></app-default-lyrics-view>
+    <app-default-lyrics-view [goToIndex]="setIndex" [hide]="hideView" [lyrics]="song.lyrics" [styles]="styles"></app-default-lyrics-view>
     <!-- <div id="lyr-container" #container>
         <div class="lyric" *ngFor="let lyr of lyrics">{{ lyr }}</div>
     </div> -->
     <div class="bottom" #bottom>
-        <app-secondary-view [goToIndex]="setIndex" [lyrics]="song.lyrics"></app-secondary-view>
+        <app-secondary-view [goToIndex]="setIndex" [lyrics]="song.lyrics" [hideView]="hideView" [styles]="styles"></app-secondary-view>
         <app-artist-info id="artist-info" [song]="song" [currentTime]="currentTime" [hideElem]="bottomHide" #artistinfo></app-artist-info>
     </div>
 </div>

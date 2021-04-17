@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit, Input, ViewChild, ViewChildren, QueryList, ElementRef } from '@angular/core';
 import { dim } from '../common-utils';
+import { Styles } from '../../songs'
 
 @Component({
   selector: 'app-default-lyrics-view',
@@ -7,12 +8,13 @@ import { dim } from '../common-utils';
   styleUrls: ['./default-lyrics-view.component.css']
 })
 export class DefaultLyricsViewComponent implements OnInit,AfterViewInit {
-  @Input() lyrics:string[];
+  @Input() lyrics: string[];
+  @Input() styles?: Styles;
   @Input()
   set hide(hideThis: boolean) {
     try {
       this.container.style.opacity = (hideThis) ? "0" :  "1";
-      this.highlighter.style.opacity = (hideThis) ? "0" :  "1";
+      this.ticker.style.opacity = (hideThis) ? "0" :  "1";
     } catch {
 
     }
@@ -21,11 +23,11 @@ export class DefaultLyricsViewComponent implements OnInit,AfterViewInit {
   indexNow: number = 0;
   @ViewChildren('lyric') lyricElems: QueryList<ElementRef>;
   @ViewChild('container') _container: ElementRef;
-  @ViewChild('highlighter') _highlighter: ElementRef;
+  @ViewChild('ticker') _ticker: ElementRef;
 
   //lyricElems: HTMLElement;
   container: HTMLDivElement;
-  highlighter: HTMLElement;
+  ticker: HTMLElement;
 
   @Input() 
   set goToIndex(idx: number) {
@@ -37,8 +39,8 @@ export class DefaultLyricsViewComponent implements OnInit,AfterViewInit {
         totHeight += dim(this.lyricElems.get(i)).height;
       }
       this.container.style.top = maxHeight/2 - totHeight + dim(this.lyricElems.get(idx)).height/2 + 'px';
-      this.highlighter.style.top = maxHeight/2 - dim(this.lyricElems.get(idx)).height/2 + 'px';
-      this.highlighter.style.height = dim(this.lyricElems.get(idx)).height + 'px';
+      this.ticker.style.top = maxHeight/2 - dim(this.lyricElems.get(idx)).height/2 + 'px';
+      this.ticker.style.height = dim(this.lyricElems.get(idx)).height + 'px';
     }else {
       this.indexNow = idx;
     }
@@ -51,11 +53,11 @@ export class DefaultLyricsViewComponent implements OnInit,AfterViewInit {
 
   ngAfterViewInit(): void {
     this.container = this._container.nativeElement;
-    this.highlighter = this._highlighter.nativeElement;
+    this.ticker = this._ticker.nativeElement;
 
     this.isReady = true;
     this.goToIndex = this.indexNow;
-    this.highlighter.style.top = dim(this.container).height/2 - dim(this.lyricElems.get(this.indexNow)).height/2 + 'px';
+    this.ticker.style.top = dim(this.container).height/2 - dim(this.lyricElems.get(this.indexNow)).height/2 + 'px';
     window.onresize = ()=>{
       //console.log(dim(this.container).height); 
       this.goToIndex = this.indexNow;

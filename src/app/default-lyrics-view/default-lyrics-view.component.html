@@ -1,7 +1,7 @@
 <div id="wrapper">
-    <div id="container" #container>
+    <div id="container" [ngStyle]="styles!.maintxt" #container>
         <div class="lyric" *ngFor="let lyr of lyrics" #lyric>{{ (lyr.trim()) ? lyr : "-" }}</div>
     </div>
-    <div id="highlighter" #highlighter></div>
+    <div id="ticker" [ngStyle]="styles!.ticker" #ticker></div>
 </div>
     

@@ -1,1 +1,3 @@
-<div id="second-lyr">{{ lyrics[goToIndex] }}</div>
+<div id="second-lyr" [ngStyle]="styles!.secondarytxt" #view>
+    <div id="wrapper" #wrapper>{{ lyrNow }}</div>
+</div>

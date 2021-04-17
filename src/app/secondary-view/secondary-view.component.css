@@ -1,8 +1,11 @@
 #second-lyr {
     justify-content: center;
-    color:  white;
-    background-color: black;
+    /* color:  white;
+    background-color: black; */
     padding: 15px;
     font-size: 30px;
     font-family: Main_1;
+    font-style: oblique;
 }
+
+*{ transition: all 100ms; }

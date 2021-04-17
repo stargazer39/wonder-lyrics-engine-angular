@@ -3,7 +3,8 @@ import { SharedServiceService } from "../shared-service.service";
 import { PlayerService } from "../player.service";
 import { UniPlayerComponent,PlayerMode, PlayerState } from "../uni-player/uni-player.component";
 import { songs } from '../../songs';
-import { Song,BarState } from '../shared-service.service';
+import { BarState } from '../shared-service.service';
+import { Song,Styles } from '../../songs';
 
 @Component({
   selector: 'app-lyrics-player',
@@ -20,7 +21,8 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
   @Input() setIndex: number = 0;
   @Input() hideView: boolean;
   @Input() bottomHide: boolean;
-  @Input() song: Song = songs[0];
+  @Input() song: Song = songs[1];
+  @Input() styles?: Styles = songs[1].styles;
   @Input() currentTime: number;
   @ViewChild('container') container: ElementRef;
   @ViewChild('uniPlayer0') player: UniPlayerComponent;
@@ -135,7 +137,7 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
       if(this.setIndex > 0 && now < this.song.timecode[this.setIndex]) {
         this.seek(now);
       }
-      if(now < this.song.timecode[0] || now > this.song.timecode[this.song.lyrics.length - 1]) {
+      if(now < this.song.timecode[0] || now > this.song.timecode[this.song.timecode.length - 1]) {
         this.hideView = true;
       }
       if(now >= this.song.timecode[this.indexNext] && this.indexNext < this.song.lyrics.length) {
@@ -153,7 +155,7 @@ export class LyricsPlayerComponent implements OnInit,AfterViewInit,OnDestroy {
   seek(time: number) {
     this.blocker = true;
     console.log("seeking");
-    for(var i = 0; i < this.song.lyrics.length; i++) {
+    for(var i = 0; i < this.song.timecode.length; i++) {
       if(time <= this.song.timecode[i]){
         this.indexNext = i - 1;
         break;

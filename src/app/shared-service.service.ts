@@ -47,13 +47,3 @@ export interface BarState {
   bottom_width?: number;
   hidden: boolean;
 }
-
-export interface Song {
-  names?: string[];
-  singers?: string[];
-  thumb?: string;
-  title: string;
-  timecode: Array<number>,
-  lyrics: string[],
-  id: string;
-}

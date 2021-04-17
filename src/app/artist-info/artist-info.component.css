@@ -6,7 +6,8 @@
     color:white;
     padding: 10px;
     margin: 15px;
-    transition: all 500ms;
+    transition: opacity 500ms;
+    transition: width 100ms;
 }
 
 .t-d-wrapper {
@@ -18,6 +19,12 @@
 .t-d-wrapper > div {
     flex-shrink: 0;
     height: 100%;
+}
+
+#details {
+    font-family: Main_2;
+    padding: 8px;
+    font-size: small;
 }
 
 #thumb {

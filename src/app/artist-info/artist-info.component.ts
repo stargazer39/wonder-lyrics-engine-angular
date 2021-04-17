@@ -1,7 +1,7 @@
 import { Component, AfterViewInit, Input, ViewChild, ElementRef, OnDestroy } from '@angular/core';
 import { SharedServiceService,BarState } from '../shared-service.service';
 import { dim } from '../common-utils';
-import { Song } from '../shared-service.service';
+import { Song } from '../../songs';
 
 @Component({
   selector: 'app-artist-info',
@@ -21,8 +21,8 @@ export class ArtistInfoComponent implements AfterViewInit,OnDestroy {
       this.thisWindow.classList.add('width-0');
       this.stopUpdate();
     }else{
-      this.thisWindow.style.opacity = '1';
       this.thisWindow.classList.remove('width-0');
+      this.thisWindow.style.opacity = '1';
       this.startUpdate();
     }
   }
